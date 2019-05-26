@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import MainView from './components/MainView';
+import styled from 'styled-components'
 import './App.css';
+import Settings from './components/Settings';
+
+const HomePage = styled.div`
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HomePage>
+      <MainView>
+        Hello world
+      </MainView>
+      <Settings>
+        Settings yo
+      </Settings>
+    </HomePage>
   );
 }
 
