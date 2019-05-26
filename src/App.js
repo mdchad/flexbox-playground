@@ -14,7 +14,7 @@ function App() {
   return (
     <HomePage>
       <MainView>
-        Hello world
+        Main page
       </MainView>
       <Settings>
         Settings yo
