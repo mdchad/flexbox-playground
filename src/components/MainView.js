@@ -4,7 +4,7 @@ const MainView = styled.div`
   display: block;
   background-color: palevioletred;
   min-height: 100vh;
-  flex-grow: 5;
+  flex-grow: 1;
 `
 
 export default MainView
