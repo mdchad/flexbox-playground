@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-wrap: ${props => props.wrap};
   justify-content: ${props => props.justify};
   align-items: ${props => props.alignItems};
-  align-content: ${props => props.alignContent}
+  align-content: ${props => props.alignContent};
 `
 
 export default Container

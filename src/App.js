@@ -15,12 +15,13 @@ const HomePage = styled.div`
 
 const Label = styled.label`
   float:left;
-  width:170px;
+  width:100px;
   margin:4px;
   background-color:#EFEFEF;
   border-radius:4px;
   border:1px solid #D0D0D0;
   overflow:auto;
+  cursor: pointer;
 `
 
 const RadioButton = styled.input`
@@ -36,7 +37,7 @@ const RadioButton = styled.input`
 
 const Span = styled.span`
   text-align:center;
-  font-size: 14px;
+  font-size: 11px;
   padding:5px 0px;
   display:block;
 
@@ -68,15 +69,15 @@ function App() {
   return (
     <HomePage>
       <MainView>
-        <Container direction={selectedDirection} 
-                   wrap={selectedWrap} 
-                   justify={selectedJustify}
-                   alignItems={selectedAlignItems}
-                   alignContent={selectedAlignContent}>
-          { items.map((a, i) => {
-            return <Items key={i}>item {a}</Items>
-          })}
-        </Container>
+          <Container direction={selectedDirection} 
+                     wrap={selectedWrap} 
+                     justify={selectedJustify}
+                     alignItems={selectedAlignItems}
+                     alignContent={selectedAlignContent}>
+            { items.map((a, i) => {
+              return <Items key={i}>item {a}</Items>
+            })}
+          </Container>
       </MainView>
       <Settings>
 
