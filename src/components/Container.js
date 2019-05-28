@@ -8,7 +8,9 @@ const Container = styled.div`
   width: 900px;
   flex-direction: ${props => props.direction};
   flex-wrap: ${props => props.wrap};
-  justify-content: ${props => props.justify}
+  justify-content: ${props => props.justify};
+  align-items: ${props => props.alignItems};
+  align-content: ${props => props.alignContent}
 `
 
 export default Container
