@@ -16,12 +16,23 @@ const HomePage = styled.div`
 const Label = styled.label`
   float:left;
   width:100px;
-  margin:4px;
+  margin:4px 0;
   background-color:#EFEFEF;
-  border-radius:4px;
-  border:1px solid #D0D0D0;
+
   overflow:auto;
   cursor: pointer;
+
+  &:first-of-type{
+    border-radius: 4px 0 0 4px;
+  }
+
+  &:last-of-type{
+    border-radius: 0 4px 4px 0;
+  }
+
+  &:not(:first-of-type) {
+  }
+
 `
 
 const RadioButton = styled.input`
@@ -42,13 +53,13 @@ const Span = styled.span`
   display:block;
 
   ${RadioButton}:checked + & {
-    background-color:#404040;
+    background-color:#8d70c8;
     color:#F7F7F7;
   }
 `
 
 function App() {
-  const [items, setItems] = useState([1, 2])
+  const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7, 8])
   const [value, setValue] = useState(items.length)
   const [selectedDirection, setSelectedDirection] = useState('row')  
   const [selectedWrap, setSelectedWrap] = useState('wrap')
