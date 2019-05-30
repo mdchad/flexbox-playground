@@ -11,6 +11,10 @@ const HomePage = styled.div`
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
 `
 
 const Button = styled.button`
@@ -26,8 +30,14 @@ const Button = styled.button`
 `
 
 const Form = styled.form`
-  margin-top: 20px;
-  margin-left: 35px;
+  /* margin-top: 20px;
+  margin-left: 35px; */
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 function App() {
@@ -48,7 +58,7 @@ function App() {
   return (
     <HomePage>
       <MainView>
-        <p>Flexbox Playdground</p>
+        <p>Flexbox Playground</p>
         <small>Created by Irsyad</small>
         <Container direction={selectedDirection} 
                     wrap={selectedWrap} 
@@ -56,61 +66,73 @@ function App() {
                     alignItems={selectedAlignItems}
                     alignContent={selectedAlignContent}>
           { items.map((a, i) => {
-            return <Items key={i}>item {a}</Items>
+            return <Items key={i}><span>item {a}</span></Items>
           })}
         </Container>
       </MainView>
       <Settings>
 
+        <Wrapper>
         <Form onSubmit={(e) => setTheNumber(e)}>
-          <label>Items: </label>
+          <label>Items </label>
           <Input type={'number'} value={value} onChange={e => setValue(e.target.value)}></Input>
           <Button type={'submit'}>submit</Button>
         </Form>
+        </Wrapper>
 
-        <P>Direction </P>
-        <ButtonWrap>
-          <Label><RadioButton type={'radio'} value={'row'} onChange={() => setSelectedDirection('row')} checked={selectedDirection === 'row'}/><Span>Row</Span></Label>
-          <Label><RadioButton type={'radio'} value={'row-reverse'} onChange={() => setSelectedDirection('row-reverse')} checked={selectedDirection === 'row-reverse'}/><Span>Row-reverse</Span></Label>
-          <Label><RadioButton type={'radio'} value={'column'}  onChange={() => setSelectedDirection('column')} checked={selectedDirection === 'column'}/><Span>Column</Span></Label>
-          <Label><RadioButton type={'radio'} value={'column-reverse'} onChange={() => setSelectedDirection('column-reverse')} checked={selectedDirection === 'column-reverse'}/><Span>Column-reverse</Span></Label>
-        </ButtonWrap>
+        <Wrapper>
+          <P>Direction </P>
+          <ButtonWrap>
+            <Label><RadioButton type={'radio'} value={'row'} onChange={() => setSelectedDirection('row')} checked={selectedDirection === 'row'}/><Span>Row</Span></Label>
+            <Label><RadioButton type={'radio'} value={'row-reverse'} onChange={() => setSelectedDirection('row-reverse')} checked={selectedDirection === 'row-reverse'}/><Span>Row-reverse</Span></Label>
+            <Label><RadioButton type={'radio'} value={'column'}  onChange={() => setSelectedDirection('column')} checked={selectedDirection === 'column'}/><Span>Column</Span></Label>
+            <Label><RadioButton type={'radio'} value={'column-reverse'} onChange={() => setSelectedDirection('column-reverse')} checked={selectedDirection === 'column-reverse'}/><Span>Column-reverse</Span></Label>
+          </ButtonWrap>
+        </Wrapper>
+          
+        <Wrapper>
+          <P>Flex-wrap </P>
+          <ButtonWrap>
+            <Label><RadioButton type={'radio'} value={'wrap'} onChange={() => setSelectedWrap('wrap')} checked={selectedWrap === 'wrap'}/><Span>Wrap</Span></Label>
+            <Label><RadioButton type={'radio'} value={'no-wrap'} onChange={() => setSelectedWrap('no-wrap')} checked={selectedWrap === 'no-wrap'}/><Span>No-wrap</Span></Label>
+            <Label><RadioButton type={'radio'} value={'wrap-reverse'}  onChange={() => setSelectedWrap('wrap-reverse')} checked={selectedWrap === 'wrap-reverse'}/><Span>Wrap-reverse</Span></Label>
+          </ButtonWrap>
+        </Wrapper>
 
-        <P>Flex-wrap </P>
-        <ButtonWrap>
-          <Label><RadioButton type={'radio'} value={'wrap'} onChange={() => setSelectedWrap('wrap')} checked={selectedWrap === 'wrap'}/><Span>Wrap</Span></Label>
-          <Label><RadioButton type={'radio'} value={'no-wrap'} onChange={() => setSelectedWrap('no-wrap')} checked={selectedWrap === 'no-wrap'}/><Span>No-wrap</Span></Label>
-          <Label><RadioButton type={'radio'} value={'wrap-reverse'}  onChange={() => setSelectedWrap('wrap-reverse')} checked={selectedWrap === 'wrap-reverse'}/><Span>Wrap-reverse</Span></Label>
-        </ButtonWrap>
-
-        <P>Justify-content </P>
-        <ButtonWrap>
-          <Label><RadioButton type={'radio'} value={'flex-start'} onChange={() => setSelectedJustify('flex-start')} checked={selectedJustify === 'flex-start'}/><Span>Flex-start</Span></Label>
-          <Label><RadioButton type={'radio'} value={'flex-end'} onChange={() => setSelectedJustify('flex-end')} checked={selectedJustify === 'flex-end'}/><Span>Flex-end</Span></Label>
-          <Label><RadioButton type={'radio'} value={'center'}  onChange={() => setSelectedJustify('center')} checked={selectedJustify === 'center'}/><Span>Center</Span></Label>
-          <Label><RadioButton type={'radio'} value={'space-between'}  onChange={() => setSelectedJustify('space-between')} checked={selectedJustify === 'space-between'}/><Span>Space-between</Span></Label>
-          <Label><RadioButton type={'radio'} value={'space-around'}  onChange={() => setSelectedJustify('space-around')} checked={selectedJustify === 'space-around'}/><Span>Space-around</Span></Label>
-          <Label><RadioButton type={'radio'} value={'space-evenly'}  onChange={() => setSelectedJustify('space-evenly')} checked={selectedJustify === 'space-evenly'}/><Span>Space-evenly</Span></Label>
-        </ButtonWrap>
-
-        <P>Align-items </P>
-        <ButtonWrap>
-          <Label><RadioButton type={'radio'} value={'stretch'} onChange={() => setSelectedAlignItems('stretch')} checked={selectedAlignItems === 'stretch'}/><Span>Stretch</Span></Label>
-          <Label><RadioButton type={'radio'} value={'flex-start'} onChange={() => setSelectedAlignItems('flex-start')} checked={selectedAlignItems === 'flex-start'}/><Span>Flex-start</Span></Label>
-          <Label><RadioButton type={'radio'} value={'flex-end'}  onChange={() => setSelectedAlignItems('flex-end')} checked={selectedAlignItems === 'flex-end'}/><Span>Flex-end</Span></Label>
-          <Label><RadioButton type={'radio'} value={'center'}  onChange={() => setSelectedAlignItems('center')} checked={selectedAlignItems === 'center'}/><Span>Center</Span></Label>
-          <Label><RadioButton type={'radio'} value={'baseline'}  onChange={() => setSelectedAlignItems('baseline')} checked={selectedAlignItems === 'baseline'}/><Span>Baseline</Span></Label>
-        </ButtonWrap>
-
-        <P>Align-content </P>
-        <ButtonWrap>
-          <Label><RadioButton type={'radio'} value={'stretch'} onChange={() => setSelectedAlignContent('stretch')} checked={selectedAlignContent === 'stretch'}/><Span>Stretch</Span></Label>
-          <Label><RadioButton type={'radio'} value={'flex-start'} onChange={() => setSelectedAlignContent('flex-start')} checked={selectedAlignContent === 'flex-start'}/><Span>Flex-start</Span></Label>
-          <Label><RadioButton type={'radio'} value={'flex-end'}  onChange={() => setSelectedAlignContent('flex-end')} checked={selectedAlignContent === 'flex-end'}/><Span>Flex-end</Span></Label>
-          <Label><RadioButton type={'radio'} value={'center'}  onChange={() => setSelectedAlignContent('center')} checked={selectedAlignContent === 'center'}/><Span>Center</Span></Label>
-          <Label><RadioButton type={'radio'} value={'space-around'}  onChange={() => setSelectedAlignContent('space-around')} checked={selectedAlignContent === 'space-around'}/><Span>Space-around</Span></Label>
-          <Label><RadioButton type={'radio'} value={'space-between'}  onChange={() => setSelectedAlignContent('space-between')} checked={selectedAlignContent === 'space-between'}/><Span>Space-between</Span></Label>
-        </ButtonWrap>
+        <Wrapper>
+          <P>Justify-content </P>
+          <ButtonWrap>
+            <Label><RadioButton type={'radio'} value={'flex-start'} onChange={() => setSelectedJustify('flex-start')} checked={selectedJustify === 'flex-start'}/><Span>Flex-start</Span></Label>
+            <Label><RadioButton type={'radio'} value={'flex-end'} onChange={() => setSelectedJustify('flex-end')} checked={selectedJustify === 'flex-end'}/><Span>Flex-end</Span></Label>
+            <Label><RadioButton type={'radio'} value={'center'}  onChange={() => setSelectedJustify('center')} checked={selectedJustify === 'center'}/><Span>Center</Span></Label>
+            <Label><RadioButton type={'radio'} value={'space-between'}  onChange={() => setSelectedJustify('space-between')} checked={selectedJustify === 'space-between'}/><Span>Space-between</Span></Label>
+            <Label><RadioButton type={'radio'} value={'space-around'}  onChange={() => setSelectedJustify('space-around')} checked={selectedJustify === 'space-around'}/><Span>Space-around</Span></Label>
+            <Label><RadioButton type={'radio'} value={'space-evenly'}  onChange={() => setSelectedJustify('space-evenly')} checked={selectedJustify === 'space-evenly'}/><Span>Space-evenly</Span></Label>
+          </ButtonWrap>
+        </Wrapper>
+        
+        <Wrapper>
+          <P>Align-items </P>
+          <ButtonWrap>
+            <Label><RadioButton type={'radio'} value={'stretch'} onChange={() => setSelectedAlignItems('stretch')} checked={selectedAlignItems === 'stretch'}/><Span>Stretch</Span></Label>
+            <Label><RadioButton type={'radio'} value={'flex-start'} onChange={() => setSelectedAlignItems('flex-start')} checked={selectedAlignItems === 'flex-start'}/><Span>Flex-start</Span></Label>
+            <Label><RadioButton type={'radio'} value={'flex-end'}  onChange={() => setSelectedAlignItems('flex-end')} checked={selectedAlignItems === 'flex-end'}/><Span>Flex-end</Span></Label>
+            <Label><RadioButton type={'radio'} value={'center'}  onChange={() => setSelectedAlignItems('center')} checked={selectedAlignItems === 'center'}/><Span>Center</Span></Label>
+            <Label><RadioButton type={'radio'} value={'baseline'}  onChange={() => setSelectedAlignItems('baseline')} checked={selectedAlignItems === 'baseline'}/><Span>Baseline</Span></Label>
+          </ButtonWrap>
+        </Wrapper>
+        
+        <Wrapper>
+          <P>Align-content </P>
+          <ButtonWrap>
+            <Label><RadioButton type={'radio'} value={'stretch'} onChange={() => setSelectedAlignContent('stretch')} checked={selectedAlignContent === 'stretch'}/><Span>Stretch</Span></Label>
+            <Label><RadioButton type={'radio'} value={'flex-start'} onChange={() => setSelectedAlignContent('flex-start')} checked={selectedAlignContent === 'flex-start'}/><Span>Flex-start</Span></Label>
+            <Label><RadioButton type={'radio'} value={'flex-end'}  onChange={() => setSelectedAlignContent('flex-end')} checked={selectedAlignContent === 'flex-end'}/><Span>Flex-end</Span></Label>
+            <Label><RadioButton type={'radio'} value={'center'}  onChange={() => setSelectedAlignContent('center')} checked={selectedAlignContent === 'center'}/><Span>Center</Span></Label>
+            <Label><RadioButton type={'radio'} value={'space-around'}  onChange={() => setSelectedAlignContent('space-around')} checked={selectedAlignContent === 'space-around'}/><Span>Space-around</Span></Label>
+            <Label><RadioButton type={'radio'} value={'space-between'}  onChange={() => setSelectedAlignContent('space-between')} checked={selectedAlignContent === 'space-between'}/><Span>Space-between</Span></Label>
+          </ButtonWrap>
+        </Wrapper>
 
       </Settings>
     </HomePage>

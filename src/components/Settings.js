@@ -1,19 +1,19 @@
 import styled from 'styled-components'
 
 const Settings = styled.div`
-    background-color: #e8e8e8;
+    background-color: #f5f5f5;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
+    padding-top: 25px
+    /* padding-left: 20px; */
 `
 
 const Label = styled.label`
   float:left;
   width:100px;
   margin:4px 0;
-  background-color:#EFEFEF;
-
+  background-color: white;
   overflow:auto;
   cursor: pointer;
 `
@@ -33,7 +33,7 @@ const RadioButton = styled.input`
 const Span = styled.span`
   text-align:center;
   font-size: 11px;
-  padding:5px 0px;
+  padding:8px 0px;
   display:block;
 
   ${RadioButton}:checked + & {
@@ -44,14 +44,14 @@ const Span = styled.span`
 
 const ButtonWrap = styled.div`
   display: flex;
-  width: 380px;
+  /* width: 380px; */
   flex-wrap: wrap;
   justify-content: center;
 `
 
 const P = styled.p`
   text-align: center;
-  margin-top: 2.5em;
+  margin-top: 2.2em;
   font-size: 14px;
 `
 
