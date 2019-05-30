@@ -20,4 +20,4 @@ this playground to help visualise all of Flexbox properties.
 
 * Offline support
 * Items properties
-
+* Code generator
