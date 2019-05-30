@@ -16,4 +16,8 @@ this playground to help visualise all of Flexbox properties.
 * Styled-Components
 * React Hooks
 
+### To Do
+
+* Offline support
+* Items properties
 
