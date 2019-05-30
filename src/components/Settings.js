@@ -5,7 +5,7 @@ const Settings = styled.div`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding-top: 25px
+    padding: 25px 0;
     /* padding-left: 20px; */
 `
 
