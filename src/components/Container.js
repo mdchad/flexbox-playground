@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 10px 10px 25px 0px rgba(148,148,148,1);
   margin: 10em auto;
   display: flex;
   height: auto;
