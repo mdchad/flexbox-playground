@@ -29,11 +29,6 @@ const Button = styled.button`
   }
 `
 
-const Form = styled.form`
-  /* margin-top: 20px;
-  margin-left: 35px; */
-`
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,10 +56,10 @@ function App() {
         <p>Flexbox Playground</p>
         <small>Created by Irsyad</small>
         <Container direction={selectedDirection} 
-                    wrap={selectedWrap} 
-                    justify={selectedJustify}
-                    alignItems={selectedAlignItems}
-                    alignContent={selectedAlignContent}>
+                   wrap={selectedWrap} 
+                   justify={selectedJustify}
+                   alignItems={selectedAlignItems}
+                   alignContent={selectedAlignContent}>
           { items.map((a, i) => {
             return <Items key={i}><span>item {a}</span></Items>
           })}
@@ -73,11 +68,11 @@ function App() {
       <Settings>
 
         <Wrapper>
-        <Form onSubmit={(e) => setTheNumber(e)}>
-          <label>Items </label>
-          <Input type={'number'} value={value} onChange={e => setValue(e.target.value)}></Input>
-          <Button type={'submit'}>submit</Button>
-        </Form>
+          <form onSubmit={(e) => setTheNumber(e)}>
+            <label>Items </label>
+            <Input type={'number'} value={value} onChange={e => setValue(e.target.value)}></Input>
+            <Button type={'submit'}>submit</Button>
+          </form>
         </Wrapper>
 
         <Wrapper>
