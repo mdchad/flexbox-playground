@@ -9,7 +9,6 @@ const Items = styled.div`
   display:flex;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
   margin: 2em;
   height: 100px;
   width: 100px;

@@ -13,10 +13,6 @@ const Container = styled.div`
   justify-content: ${props => props.justify};
   align-items: ${props => props.alignItems};
   align-content: ${props => props.alignContent};
-
-  @media (min-width: 375px) {
-
-  }
 `
 
 export default Container
